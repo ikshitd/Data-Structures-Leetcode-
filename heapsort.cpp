@@ -69,9 +69,11 @@ void heapify(vt <int> &v , int i , int n){
 	int mxidx = i ;
 	int l = 2 * i + 1 ; 
 	int r = 2 * i + 2 ; 
+	// just until which point our left child will be greater than the parent
 	while(l < n and v[l] > v[mxidx]){
 		mxidx = l ;
 	}
+	// just until which point our right child will be greater than the parent 
 	while(r < n and v[r] > v[mxidx]){
 		mxidx = r ;
 	}
@@ -81,6 +83,7 @@ void heapify(vt <int> &v , int i , int n){
 	}
 }
 void heapsort(vt <int> &v , int n){
+	// we know that all the leaf nodes are already sorted then to start heapify we must find the first non leaf node and that will be present at index n / 2
 	for(int i = n / 2; i >= 0 ; i--){
 		heapify(v , i , n) ;
 	}
